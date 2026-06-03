@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS Fashion | Premium Kurtis & Dresses</title>
+    <meta name="description"
+        content="Shop the latest elegant ladies' kurtis and dresses at MS Fashion. High-quality fashion boutique.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <header class="glass-navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="brand-logo">
+                    <span class="logo-text">MS</span>
+                    <span class="logo-subtext">FASHION</span>
+                </div>
+            </a>
+            <nav class="nav-links">
+                <a href="#home">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="login.html" class="icon-link"><i class='bx bx-user'></i></a>
+                <a href="#" class="icon-link cart-icon">
+                    <i class='bx bx-shopping-bag'></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <button class="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-image-container">
+            <img src="assets/images/hero.png" alt="Elegant Kurti Collection" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <span class="subtitle">New Arrival</span>
+            <h1>Discover True Elegance</h1>
+            <p>Explore our exclusive collection of premium designer kurtis and traditional dresses crafted for the
+                modern woman.</p>
+            <a href="#collections" class="btn btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <section id="collections" class="products-section">
+        <div class="section-header">
+            <h2>Trending Now</h2>
+            <p>Our most loved styles this season</p>
+        </div>
+
+        <div class="product-grid" id="product-grid">
+            <h3 style="text-align: center; width: 100%;">Loading latest collections...</h3>
+        </div>
+    </section>
+
+    <a href="https://wa.me/1234567890" class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
+        <i class='bx bxl-whatsapp'></i>
+    </a>
+
+    <div id="cart-drawer" class="cart-drawer">
+        <div class="cart-header">
+            <h2>Your Cart</h2>
+            <button id="close-cart-btn" class="close-btn"><i class='bx bx-x'></i></button>
+        </div>
+        <div id="cart-items-container" class="cart-items">
+        </div>
+        <div class="cart-footer">
+            <div class="cart-breakdown">
+                <div class="cart-breakdown-row">
+                    <span>Subtotal:</span>
+                    <span id="cart-subtotal">₹ 0</span>
+                </div>
+                <div class="cart-breakdown-row">
+                    <span>Shipping:</span>
+                    <span id="cart-shipping">₹ 0</span>
+                </div>
+            </div>
+            <div class="cart-total">
+                <span>Final Total:</span>
+                <span id="cart-total-price">₹ 0</span>
+            </div>
+            <button class="btn btn-primary full-width" id="checkout-btn">Proceed to WhatsApp</button>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>MS FASHION</h3>
+                <p>Redefining elegance with every stitch. Premium women's fashion.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="#home">Home</a>
+                <a href="#collections">Collections</a>
+                <a href="login.html">Admin Login</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 MS FASHION. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+
+    <script type="module" src="js/products.js"></script>
+
+    <script src="js/cart.js"></script>
+</body>
+
+</html>

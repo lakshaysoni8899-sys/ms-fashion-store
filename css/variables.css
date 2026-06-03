@@ -1,0 +1,34 @@
+:root {
+  /* Brand Colors - MS FASHION */
+  --primary-color: #5C1D2A; /* Deep Burgundy */
+  --primary-light: #7E283A;
+  --secondary-color: #D4AF37; /* Gold */
+  --accent-color: #FDF5E6; /* Old Lace / Light Cream */
+
+  /* Neutral Colors */
+  --bg-color: #FAF8F5; /* Off-white warm */
+  --surface-color: #FFFFFF;
+  --text-primary: #1C1A1A;
+  --text-secondary: #5C5A5A;
+  --text-light: #F5F5F5;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-xxl: 3rem;
+
+  /* Border & Shadow */
+  --border-radius: 12px;
+  --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --box-shadow-hover: 0 20px 40px rgba(92, 29, 42, 0.15);
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(255, 255, 255, 0.4);
+  --transition-normal: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}

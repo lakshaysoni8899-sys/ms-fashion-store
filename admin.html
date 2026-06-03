@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MS FASHION - Admin Panel</title>
+
+    <!-- AUTHENTICATION CHECK -->
+    <script>
+        if (localStorage.getItem('isAdminLoggedIn') !== 'true') {
+            window.location.replace('login.html');
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="admin.html" class="logo">
+                <div class="brand-logo">
+                    <span class="logo-text">MS</span>
+                    <span class="logo-subtext">FASHION</span>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" data-target="view-dashboard"><i class='bx bx-grid-alt'></i> Dashboard</a></li>
+                <li class="active"><a href="#" data-target="view-add-product"><i class='bx bx-plus-circle'></i> Add
+                        Product</a></li>
+                <li><a href="#" data-target="view-inventory"><i class='bx bx-package'></i> Inventory</a></li>
+                <li><a href="#" data-target="view-orders"><i class='bx bx-cart'></i> Orders</a></li>
+                <li><a href="#" data-target="view-settings"><i class='bx bx-cog'></i> Settings</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Topbar -->
+            <header class="topbar">
+                <h2>MS FASHION - Admin Panel</h2>
+                <div class="user-info">
+                    <button id="logout-btn" class="logout-btn">
+                        <i class='bx bx-log-out'></i> Logout
+                    </button>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="dashboard-content">
+
+                <!-- View: Dashboard -->
+                <div id="view-dashboard" class="admin-view">
+                    <div class="card">
+                        <h3 class="card-title">Dashboard Overview</h3>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class='bx bx-shopping-bag'></i></div>
+                                <div class="stat-info">
+                                    <p>Total Products</p>
+                                    <h4 id="stat-total-products">0</h4>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class='bx bx-wallet'></i></div>
+                                <div class="stat-info">
+                                    <p>Inventory Value</p>
+                                    <h4 id="stat-inventory-value">₹0</h4>
+                                </div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-icon"><i class='bx bx-car'></i></div>
+                                <div class="stat-info">
+                                    <p>Shipping Rate</p>
+                                    <h4 id="stat-shipping-rate">₹0</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View: Add Product -->
+                <div id="view-add-product" class="admin-view active">
+                    <div class="card">
+                        <h3 class="card-title">Add New Product</h3>
+
+                        <form id="product-form" class="admin-form">
+                            <div class="form-row">
+                                <div class="form-group" style="flex: 2;">
+                                    <label for="product-title">Product Title</label>
+                                    <input type="text" id="product-title" name="title"
+                                        placeholder="e.g. Elegant Designer Kurti" required>
+                                </div>
+                                <div class="form-group" style="flex: 1;">
+                                    <label for="product-price">Price (INR)</label>
+                                    <input type="number" id="product-price" name="price" placeholder="2499" min="0"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="product-description">Description</label>
+                                <textarea id="product-description" name="description"
+                                    placeholder="Write a captivating description of the product..." required></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group full-width">
+                                    <label>Available Sizes</label>
+                                    <div class="checkbox-group">
+                                        <label class="checkbox-item"><input type="checkbox" name="sizes" value="S">
+                                            S</label>
+                                        <label class="checkbox-item"><input type="checkbox" name="sizes" value="M">
+                                            M</label>
+                                        <label class="checkbox-item"><input type="checkbox" name="sizes" value="L">
+                                            L</label>
+                                        <label class="checkbox-item"><input type="checkbox" name="sizes" value="XL">
+                                            XL</label>
+                                        <label class="checkbox-item"><input type="checkbox" name="sizes" value="XXL">
+                                            XXL</label>
+                                    </div>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label for="product-colors">Available Colors (comma separated)</label>
+                                    <input type="text" id="product-colors" name="colors"
+                                        placeholder="e.g., Burgundy, Green, Yellow">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="inventory-status">Inventory Status</label>
+                                    <select id="inventory-status" name="status">
+                                        <option value="In Stock">In Stock</option>
+                                        <option value="Out of Stock">Out of Stock</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Product Images</label>
+                                <div class="file-upload-wrapper">
+                                    <i class='bx bx-cloud-upload file-upload-icon'></i>
+                                    <h4>Click to upload images</h4>
+                                    <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 5px;">PNG,
+                                        JPG, WEBP up to 5MB</p>
+                                    <input type="file" id="product-images" multiple accept="image/*">
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="margin-top: 2rem;">
+                                <button type="button" form="product-form" class="btn btn-primary full-width"
+                                    style="font-size: 1.1rem; padding: 12px;">Add Product</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- View: Inventory -->
+                <div id="view-inventory" class="admin-view">
+                    <div class="card">
+                        <h3 class="card-title">Inventory Management</h3>
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Image</th>
+                                        <th>Title</th>
+                                        <th>Price</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventory-list">
+                                    <!-- Inventory items will be injected here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View: Orders -->
+                <div id="view-orders" class="admin-view">
+                    <div class="card">
+                        <h3 class="card-title">Order History</h3>
+                        <div class="table-responsive">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Order Summary</th>
+                                        <th>Total Amount</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="orders-list">
+                                    <!-- Orders will be injected here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- View: Settings -->
+                <div id="view-settings" class="admin-view">
+                    <div class="card">
+                        <h3 class="card-title">Store Settings</h3>
+                        <div class="admin-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="shipping-rate">Standard Shipping Charge (INR)</label>
+                                    <input type="number" id="shipping-rate" name="shippingRate" placeholder="e.g. 80"
+                                        min="0">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button id="save-shipping-btn" class="btn btn-outline">Save Shipping Rate</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="js/admin-panel.js"></script>
+</body>
+
+</html>

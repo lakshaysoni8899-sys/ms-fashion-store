@@ -1,0 +1,342 @@
+/* Admin specific styles */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f6fa;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: var(--spacing-xl) 0;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.sidebar .logo {
+    color: var(--secondary-color);
+    padding: 0 var(--spacing-xl);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.5rem;
+    display: block;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-menu li a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px var(--spacing-xl);
+    color: rgba(255,255,255,0.8);
+    font-weight: 500;
+    transition: var(--transition-normal);
+}
+
+.nav-menu li a:hover, .nav-menu li.active a {
+    background-color: rgba(255,255,255,0.1);
+    color: white;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+    padding: 1rem var(--spacing-xl);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 5;
+}
+
+.topbar h2 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logout-btn {
+    background: #fce4e4;
+    color: #d32f2f;
+    border: none;
+    padding: 8px 16px;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition-normal);
+}
+
+.logout-btn:hover {
+    background: #f8caca;
+    transform: translateY(-1px);
+}
+
+.dashboard-content {
+    padding: var(--spacing-xl);
+    max-width: 1000px;
+    width: 100%;
+}
+
+.card {
+    background: white;
+    border-radius: var(--border-radius);
+    padding: var(--spacing-xl);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.card-title {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    font-size: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 1rem;
+}
+
+/* Tab Views */
+.admin-view {
+    display: none;
+    animation: fadeIn 0.4s ease;
+}
+
+.admin-view.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dashboard Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-md);
+}
+
+.stat-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #fafafa;
+    border-radius: var(--border-radius);
+    border: 1px solid #eee;
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.stat-info p {
+    color: var(--text-secondary);
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+}
+
+.stat-info h4 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--spacing-md);
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+    background-color: #fafafa;
+    color: var(--text-secondary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.admin-table td {
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.inventory-thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.status-badge.in-stock {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+}
+
+.status-badge.out-of-stock {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.btn-delete {
+    background: #ffebee;
+    color: #c62828;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: background 0.2s;
+}
+
+.btn-delete:hover {
+    background: #ffcdd2;
+}
+
+/* Form Styles */
+.admin-form .form-row {
+    display: flex;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
+}
+
+.admin-form .form-group {
+    flex: 1;
+    margin-bottom: var(--spacing-md);
+}
+
+.admin-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.admin-form input[type="text"],
+.admin-form input[type="number"],
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.admin-form input:focus,
+.admin-form select:focus,
+.admin-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(92, 29, 42, 0.1);
+}
+
+.admin-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.file-upload-wrapper {
+    position: relative;
+    border: 2px dashed #ddd;
+    border-radius: 6px;
+    padding: 2rem;
+    text-align: center;
+    background: #fafafa;
+    transition: var(--transition-normal);
+    cursor: pointer;
+}
+
+.file-upload-wrapper:hover {
+    border-color: var(--primary-color);
+    background: #fef5f6;
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-icon {
+    font-size: 2.5rem;
+    color: var(--primary-light);
+    margin-bottom: 10px;
+}
