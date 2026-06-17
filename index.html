@@ -35,18 +35,16 @@
                 <a href="#collections">Collections</a>
                 <a href="#about">About</a>
             </nav>
-          <div class="nav-actions">
+<div class="nav-actions">
                 <a href="login.html" class="icon-link"><i class='bx bx-user'></i></a>
                 
-                <a href="javascript:void(0);" class="icon-link cart-icon">
-                    <i class='bx bx-shopping-bag'></i>
-                    <span class="cart-count">0</span>
+                <a href="javascript:void(0);" class="icon-link cart-icon" style="position: relative; z-index: 999;" onclick="document.getElementById('cart-drawer').classList.add('active');">
+                    <i class='bx bx-shopping-bag' style="pointer-events: none;"></i>
+                    <span class="cart-count" style="pointer-events: none;">0</span>
                 </a>
                 
-                <button class="mobile-menu-btn"><i class='bx bx-menu'></i></button>
+                <button class="mobile-menu-btn" style="position: relative; z-index: 999;"><i class='bx bx-menu'></i></button>
             </div>
-        </div>
-    </header>
     <section id="home" class="hero">
         <div class="hero-image-container">
             <img src="assets/images/hero.png" alt="Elegant Kurti Collection" class="hero-image">
