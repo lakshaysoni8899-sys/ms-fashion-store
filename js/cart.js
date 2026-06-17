@@ -148,8 +148,8 @@ if (checkoutBtn) {
         const finalTotal = cartTotalPriceElement.innerText;
         message += `%0A*Total Amount: ${finalTotal}* (including shipping)%0A%0APlease let me know how to proceed with the payment.`;
 
-        // REPLACE THIS NUMBER WITH YOUR REAL BUSINESS WHATSAPP NUMBER (including country code, e.g., 91 for India)
-        const whatsappNumber = "919876543210";
+        // FIXED WHATSAPP NUMBER
+        const whatsappNumber = "919468816787";
 
         // Open WhatsApp in a new tab!
         window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
